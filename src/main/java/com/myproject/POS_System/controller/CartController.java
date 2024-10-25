@@ -4,13 +4,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myproject.POS_System.dto.CartReqDto;
 import com.myproject.POS_System.entity.Cart;
-
-
 //import com.myproject.POS_System.entity.User;
 import com.myproject.POS_System.service.CartService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +16,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -47,12 +43,6 @@ public ResponseEntity <Cart> createCart() {
  return ResponseEntity.status(201).body("cart completed");
  }
  
- @DeleteMapping("/{itemid}")
- public void removeCartItem(@PathVariable Long cartItemId, int quantity) {
-    cartService.deleteCartItem(cartItemId, quantity);
-}
-
-
  @DeleteMapping("/{id}")
 public void cancelCart (@PathVariable Long cartId){
  cartService.deleteCart(cartId);
